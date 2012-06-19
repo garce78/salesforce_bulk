@@ -4,10 +4,10 @@ module SalesforceBulk
 
     @@XML_HEADER = '<?xml version="1.0" encoding="utf-8" ?>'
     @@API_VERSION = nil
-    @@LOGIN_HOST = 'login.salesforce.com'
+    @@LOGIN_HOST = 'login.salesforce.com'    # TODO: figure out a way to specify login url (test/login)
     @@INSTANCE_HOST = nil # Gets set in login()
 
-    def initialize(username, password, api_version, in_sandbox)
+    def initialize(username, password, api_version, in_sandbox=false)
       @username = username
       @password = password
       @session_id = nil
