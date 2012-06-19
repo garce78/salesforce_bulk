@@ -57,9 +57,10 @@ module SalesforceBulk
     end
 
     def add_batch()
-      keys = @@records.first.keys
+      keys = @@records.reduce({}) {|h,pairs| pairs.each {|k,v| (h[k] ||= []) << v}; h}.keys
+      headers = keys.to_csv
       
-      output_csv = keys.to_csv
+      output_csv = headers
 
       @@records.each do |r|
         fields = Array.new
