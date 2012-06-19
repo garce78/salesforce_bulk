@@ -29,7 +29,7 @@ task :default => :spec
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "Watirmark #{Watirmark::Version::STRING}"
+  rdoc.title = "Salesforce_Bulk API 24"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
