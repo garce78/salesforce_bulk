@@ -7,7 +7,7 @@ module SalesforceBulk
     @@LOGIN_HOST = 'login.salesforce.com'    # TODO: figure out a way to specify login url (test/login)
     @@INSTANCE_HOST = nil # Gets set in login()
 
-    def initialize(username, password, api_version, in_sandbox=false)
+    def initialize(username, password, api_version, login_url='login.salesforce.com')
       @username = username
       @password = password
       @session_id = nil
@@ -16,7 +16,7 @@ module SalesforceBulk
       @@API_VERSION = api_version
       @@LOGIN_PATH = "/services/Soap/u/#{@@API_VERSION}"
       @@PATH_PREFIX = "/services/async/#{@@API_VERSION}/"
-      @@LOGIN_HOST = 'test.salesforce.com' if in_sandbox
+      @@LOGIN_HOST = login_url
 
       login()
     end
